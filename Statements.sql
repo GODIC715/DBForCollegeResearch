@@ -58,7 +58,7 @@ select ProductName,ProductCode from Products where ProductCode like '_12%';
 
 SELECT ContactLastName, ContactFirstName FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerState Is null);
 
-SELECT CustomerID, CustomerName FROM customers WHERE NOT EXISTS(SELECT 1 FROM ordseleers WHERE orders.CustomerID = customers.CustomerID);
+SELECT CustomerID, CustomerName FROM customers WHERE NOT EXISTS(SELECT 1 FROM orders WHERE orders.CustomerID = customers.CustomerID);
 
 UPDATE employees SET Email = CONCAT(Email,'.SF') WHERE EXISTS(SELECT 1 FROM offices WHERE city = 'San Francisco' AND offices.officeCode = employees.officeCode);
 
